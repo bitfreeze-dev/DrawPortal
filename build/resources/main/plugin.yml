@@ -1,0 +1,18 @@
+name: DrawPortal
+main: dev.bitfreeze.drawportal.DrawPortal
+version: 1.0-SNAPSHOT
+api-version: 1.13
+author: bitfreeze
+description: @description@
+
+commands:
+   gradletest:
+    description: DrawPortal main command
+    usage: /<command> <action> [<parameters>]
+    permission: drawportal.command
+    aliases: [dp]
+
+permissions:
+  drawportal.command:
+    default: true
+    description: Permission to use the DrawPortal command

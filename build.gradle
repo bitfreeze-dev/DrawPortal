@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'dev.bitfreeze.drawportal'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+    compileOnly 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task fatJar(type: Jar) {
+    destinationDirectory = file("C:/Play/Minecraft/TestServer.1.16.4/plugins")
+    archiveName("DrawPortal.jar")
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
